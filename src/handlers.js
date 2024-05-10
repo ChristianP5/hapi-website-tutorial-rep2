@@ -33,8 +33,15 @@ const postHomeHandler = (request, h)=>{
     if(!username || !password){
         return h.redirect('/static');
     }else{
+        const data = {
+            username, password
+        }
+        return h.view('index', data);
+        /*
         return `<h1>Hello ${username}!</h1>
     <h2>Your password is ${password}.</h2>`;
+    */
+
     }
 }
 

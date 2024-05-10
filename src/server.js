@@ -14,6 +14,7 @@ const init = async () => {
                 relativeTo: path.join(__dirname, 'static'),
             }
         },
+        
     });
 
     server.route(routes);
@@ -21,8 +22,20 @@ const init = async () => {
     await server.register([
         {
             plugin: require('@hapi/inert'),
+        },
+        {
+            plugin: require('@hapi/vision'),
         }
     ])
+
+    
+    server.views({
+        engines: {
+            html: require('handlebars'),
+        },
+        path: path.join(__dirname, 'views'),
+        layout: 'layout',
+    })
 
 
     await server.start();
