@@ -2,6 +2,7 @@ const {
     getRootHandler, get404Handler, getRedirectHandler,
     getStaticHandler, getDownloadHandler, postHomeHandler
 } = require('./handlers');
+const path = require('path');
 
 const routes = [
     {
