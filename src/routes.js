@@ -1,7 +1,7 @@
 const {
-    getRootHandler, notFoundHandler, getStaticLoginHandler,
-    loginSubmissionHandler, getDownloadHandler
-} = require('./handler');
+    getRootHandler, get404Handler, getRedirectHandler,
+    getStaticHandler, getDownloadHandler, postHomeHandler
+} = require('./handlers');
 
 const routes = [
     {
@@ -10,14 +10,14 @@ const routes = [
         handler: getRootHandler,
     },
     {
-        path: '/login',
+        path: '/redirect',
         method: 'GET',
-        handler: getStaticLoginHandler,
+        handler: getRedirectHandler,
     },
     {
-        path: '/home',
-        method: 'POST',
-        handler: loginSubmissionHandler,
+        path: '/static',
+        method: 'GET',
+        handler: getStaticHandler,
     },
     {
         path: '/download',
@@ -26,8 +26,13 @@ const routes = [
     },
     {
         path: '/{any*}',
-        method: '*',
-        handler: notFoundHandler,
+        method: 'GET',
+        handler: get404Handler,
+    },
+    {
+        path: '/home',
+        method: 'POST',
+        handler: postHomeHandler,
     },
 ]
 
