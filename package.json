@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start-dev": "nodemon -e js,html,hbs ./src/server.js",
-    "start-prod": "SET NODE_ENV=production && node ./src/server.js",
+    "start-prod": "NODE_ENV=production node ./src/server.js",
     "lint": "eslint ./src",
     "start-db": "node ./src/dbconfig/index.js"
   },
