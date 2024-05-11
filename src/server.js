@@ -17,7 +17,6 @@ const init = async () => {
         
     });
 
-    server.route(routes);
 
     await server.register([
         {
@@ -27,6 +26,8 @@ const init = async () => {
             plugin: require('@hapi/vision'),
         }
     ])
+
+    server.route(routes);
 
     
     server.views({
