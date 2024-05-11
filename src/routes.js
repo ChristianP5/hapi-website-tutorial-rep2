@@ -30,9 +30,13 @@ const routes = [
     handler: get404Handler,
   },
   {
-    path: '/css/style.css',
+    path: '/css/{filename}',
     method: 'GET',
-    handler: (request, h) => h.file('./css/style.css'),
+    handler: (request, h) => {
+      const { filename } = request.params;
+
+      return h.file(`./css/${filename}`);
+    },
   },
   {
     path: '/home',
